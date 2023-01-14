@@ -1,18 +1,17 @@
-
-from setmy.info.services.yamlLoaderService import YamlLoaderService
-from setmy.info.model.properties import ApplicationProperties
+from yaml_loader_service import YamlLoaderService
+from properties import ApplicationProperties
 
 
 class ApplicationLoaderService:
-
-    CONFIG_FILE_NAME = "./config/application.yml"
+    CONFIG_FILE_NAME = "./resources/application.yaml"
 
     __instance = None
 
     def __init__(self):
         self.yamlLoaderService = YamlLoaderService.getInstance()
+        self.loaded = None
 
-    def loadApplicationProperties(self):
+    def load_application_properties(self):
         loaded = self.load()
         return ApplicationProperties(loaded)
 
@@ -21,7 +20,7 @@ class ApplicationLoaderService:
         return self.loaded
 
     @staticmethod
-    def getInstance():
+    def get_instance():
         if ApplicationLoaderService.__instance is None:
             ApplicationLoaderService.__instance = ApplicationLoaderService()
         return ApplicationLoaderService.__instance

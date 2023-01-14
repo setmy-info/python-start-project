@@ -1,10 +1,9 @@
 class FlaskConfig:
-
     DEBUG = False
     TESTING = False
     CSRF_ENABLED = True
     SECRET_KEY = 'NEED TO CHANGE THAT'
-        
+
 
 class ProductionConfig(FlaskConfig):
     DEBUG = False

@@ -1,12 +1,12 @@
 import unittest
 
-from setmy.info.services.applicationLoaderService import ApplicationLoaderService
+from web_app.application_loader_service import ApplicationLoaderService
 
 
 class ApplicationLoaderServiceTest(unittest.TestCase):
 
     def setUp(self):
-        self.applicationLoader = ApplicationLoaderService.getInstance()
+        self.applicationLoader = ApplicationLoaderService.get_instance()
         pass
 
     def tearDown(self):
@@ -18,7 +18,7 @@ class ApplicationLoaderServiceTest(unittest.TestCase):
         pass
 
     def testLoadApplicationProperties(self):
-        applicationProperties = self.applicationLoader.loadApplicationProperties()
+        applicationProperties = self.applicationLoader.load_application_properties()
         self.assertEqual(applicationProperties.server.host, '0.0.0.0')
         self.assertEqual(applicationProperties.server.port, 5000)
         self.assertEqual(applicationProperties.log.level, 'DEBUG')

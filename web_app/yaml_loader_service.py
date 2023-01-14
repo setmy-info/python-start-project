@@ -1,7 +1,7 @@
 import yaml
 
-class YamlLoaderService:
 
+class YamlLoaderService:
     __instance = None
 
     def load(self, fileName):

@@ -1,5 +1,5 @@
 class ServerProperties:
-    
+
     def __init__(self, loaded):
         self.host = loaded['host']
         self.port = loaded['port']
@@ -8,7 +8,7 @@ class ServerProperties:
 
 
 class LoggingProperties:
-    
+
     def __init__(self, loaded):
         self.directory = loaded['directory']
         self.fileName = loaded['fileName']
@@ -18,13 +18,13 @@ class LoggingProperties:
 
 
 class RestProperties:
-    
+
     def __init__(self, loaded):
         self.root = loaded['root']
 
 
 class ApplicationProperties:
-    
+
     def __init__(self, loaded):
         self.server = ServerProperties(loaded['server'])
         self.log = LoggingProperties(loaded['log'])
