@@ -23,6 +23,7 @@ pip install tensorflow
 pip install tensorflow-estimator
 pip install tensorflow-io-gcs-filesystem
 pip install tensorflow-metadata
+pip install tensorflow_datasets
 # ...raise RuntimeError('Python version 2.7 or 3.4+ is required.') - Bad (already downgraded and loosing language new features).
 # pip install tensorflow-transform
 

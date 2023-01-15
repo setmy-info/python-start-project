@@ -21,7 +21,10 @@ cycler==0.11.0
 debugpy==1.6.5
 decorator==5.1.1
 defusedxml==0.7.1
+dill==0.3.6
+dm-tree==0.1.8
 entrypoints==0.4
+etils==1.0.0
 executing==1.2.0
 fastjsonschema==2.16.2
 Flask==2.2.2
@@ -35,6 +38,7 @@ googleapis-common-protos==1.58.0
 grpcio==1.51.1
 h5py==3.7.0
 idna==3.4
+importlib-resources==5.10.2
 ipykernel==6.20.1
 ipython==8.8.0
 ipython-genutils==0.2.0
@@ -75,6 +79,7 @@ pickleshare==0.7.5
 Pillow==9.4.0
 platformdirs==2.6.2
 prometheus-client==0.15.0
+promise==2.3
 prompt-toolkit==3.0.36
 protobuf==3.19.6
 psutil==5.9.4
@@ -105,6 +110,7 @@ tensorboard==2.11.2
 tensorboard-data-server==0.6.1
 tensorboard-plugin-wit==1.8.1
 tensorflow==2.11.0
+tensorflow-datasets==4.8.1
 tensorflow-estimator==2.11.0
 tensorflow-intel==2.11.0
 tensorflow-io-gcs-filesystem==0.29.0
@@ -112,6 +118,7 @@ tensorflow-metadata==1.12.0
 termcolor==2.2.0
 terminado==0.17.1
 tinycss2==1.2.1
+toml==0.10.2
 tomli==2.0.1
 torch==1.13.1
 torchaudio==0.13.1
@@ -129,3 +136,4 @@ websocket-client==1.4.2
 websockets==10.4
 Werkzeug==2.2.2
 wrapt==1.14.1
+zipp==3.11.0

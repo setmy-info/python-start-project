@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project default="default">
+
+    <target name="default">
+        <echo message="Default"/>
+    </target>
+
+    <target name="jupyter">
+        <exec executable="cmd">
+            <arg value="/c"/>
+            <arg value="jupyter"/>
+            <arg value="notebook"/>
+            <arg value="--notebook-dir=./docs"/>
+        </exec>
+    </target>
+
+</project>
