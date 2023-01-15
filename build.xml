@@ -4,20 +4,24 @@
 
     <property name="PYTHONPATH" value="./"/>
 
-    <target name="default">
+    <target name="default" depends="verify">
         <echo message="Default"/>
     </target>
 
-    <target name="jupyter">
-        <exec executable="cmd">
-            <arg value="/c"/>
-            <arg value="jupyter"/>
-            <arg value="notebook"/>
-            <arg value="--notebook-dir=./docs"/>
-        </exec>
-    </target>
-
-    <target name="test">
+    <target name="initialize"></target>
+    <target name="generate-sources" depends="initialize"></target>
+    <target name="process-sources" depends="generate-sources"></target>
+    <target name="generate-resources" depends="process-sources"></target>
+    <target name="process-resources" depends="generate-resources"></target>
+    <target name="compile" depends="process-resources"></target>
+    <target name="process-classes" depends="compile"></target>
+    <target name="generate-test-sources" depends="process-classes"></target>
+    <target name="process-test-sources" depends="generate-test-sources"></target>
+    <target name="generate-test-resources" depends="process-test-sources"></target>
+    <target name="process-test-resources" depends="generate-test-resources"></target>
+    <target name="test-compile" depends="process-test-resources"></target>
+    <target name="process-test-classes" depends="test-compile"></target>
+    <target name="test" depends="process-test-classes">
         <exec executable="cmd">
             <env key="PYTHONPATH" value="${PYTHONPATH}"/>
             <arg value="/c"/>
@@ -31,8 +35,12 @@
             <arg value="*_test.py"/>
         </exec>
     </target>
-
-    <target name="validate">
+    <target name="prepare-package" depends="test"></target>
+    <target name="package" depends="prepare-package"></target>
+    <target name="pre-integration-test" depends="package"></target>
+    <target name="integration-test" depends="pre-integration-test"></target>
+    <target name="post-integration-test" depends="integration-test"></target>
+    <target name="verify" depends="post-integration-test">
         <exec executable="cmd">
             <env key="PYTHONPATH" value="${PYTHONPATH}"/>
             <arg value="/c"/>
@@ -44,6 +52,23 @@
             <arg value="./"/>
             <arg value="-p"/>
             <arg value="*_it.py"/>
+        </exec>
+    </target>
+    <target name="install" depends="verify"></target>
+    <target name="deploy" depends="install"></target>
+
+    <target name="pre-site"></target>
+    <target name="site" depends="jupyter"></target>
+    <target name="post-site"></target>
+    <target name="site-deploy"></target>
+    <target name="site-run" depends="jupyter"></target>
+
+    <target name="jupyter">
+        <exec executable="cmd">
+            <arg value="/c"/>
+            <arg value="jupyter"/>
+            <arg value="notebook"/>
+            <arg value="--notebook-dir=./docs"/>
         </exec>
     </target>
 
