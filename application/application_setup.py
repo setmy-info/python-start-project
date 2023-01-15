@@ -10,6 +10,7 @@ logger = logging.getLogger(__name__)
 
 
 class Application:
+    APPLICATION_PROFILES_ENVIRONMENT = 'APPLICATION_PROFILES'
 
     def __init__(self, name: str, version: str, argument_parser: ArgumentParser):
         self.name: str = name

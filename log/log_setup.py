@@ -10,9 +10,16 @@ def logging_setup(application):
                      + "] [%(threadName)s] %(levelname)s %(name)s - %(message)s"
     logging.basicConfig(
         # filename='example.log',
+        # level=
         encoding='utf-8',
         level=logging.DEBUG,
         format=logging_format,
         datefmt='%Y-%m-%d %H:%M:%S'
     )
     # logging.config.fileConfig('logging.conf')
+    ''' From old Flask python-start-prohect
+    logging.basicConfig(filename=application_properties.log.directory + application_properties.log.fileName, format=application_properties.log.format, level=application_properties.log.level)
+    handler = RotatingFileHandler(filename=application_properties.log.directory + application_properties.log.fileName, maxBytes=application_properties.log.size, backupCount=1)
+    log = logging.getLogger()
+    log.addHandler(handler)
+    '''

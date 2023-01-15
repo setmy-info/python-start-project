@@ -14,11 +14,9 @@ class Test(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testName(self):
+    def test_name(self):
         self.assertEqual('Imre', 'Imre')
-        pass
 
 
 if __name__ == "__main__":
-    # import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
