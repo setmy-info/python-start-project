@@ -1,6 +1,0 @@
-#!/bin/sh
-
-export PYTHONPATH=$(pwd)
-python3 ./web_app/main.py
-
-exit ${?}

@@ -72,4 +72,21 @@
         </exec>
     </target>
 
+    <target name="flask-run">
+        <exec executable="cmd">
+            <env key="PYTHONPATH" value="${PYTHONPATH}"/>
+            <arg value="/c"/>
+            <arg value="python"/>
+            <arg value="./web_app/main.py"/>
+        </exec>
+    </target>
+
+    <target name="layers-example-run">
+        <exec executable="cmd">
+            <env key="PYTHONPATH" value="${PYTHONPATH}"/>
+            <arg value="/c"/>
+            <arg value="python"/>
+            <arg value="./layers_example/main.py"/>
+        </exec>
+    </target>
 </project>
