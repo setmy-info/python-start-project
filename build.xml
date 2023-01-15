@@ -2,6 +2,8 @@
 
 <project default="default">
 
+    <property name="PYTHONPATH" value="./"/>
+
     <target name="default">
         <echo message="Default"/>
     </target>
@@ -12,6 +14,36 @@
             <arg value="jupyter"/>
             <arg value="notebook"/>
             <arg value="--notebook-dir=./docs"/>
+        </exec>
+    </target>
+
+    <target name="test">
+        <exec executable="cmd">
+            <env key="PYTHONPATH" value="${PYTHONPATH}"/>
+            <arg value="/c"/>
+            <arg value="python"/>
+            <arg value="-m"/>
+            <arg value="unittest"/>
+            <arg value="discover"/>
+            <arg value="-s"/>
+            <arg value="./"/>
+            <arg value="-p"/>
+            <arg value="*_test.py"/>
+        </exec>
+    </target>
+
+    <target name="validate">
+        <exec executable="cmd">
+            <env key="PYTHONPATH" value="${PYTHONPATH}"/>
+            <arg value="/c"/>
+            <arg value="python"/>
+            <arg value="-m"/>
+            <arg value="unittest"/>
+            <arg value="discover"/>
+            <arg value="-s"/>
+            <arg value="./"/>
+            <arg value="-p"/>
+            <arg value="*_it.py"/>
         </exec>
     </target>
 
