@@ -1,5 +1,31 @@
 # python-start-project
 
+## Notest
+
+For [Tensorflow 2.11.0 (at the moment the latest version)](https://pypi.org/project/tensorflow/) Python version should
+be 3.10.x
+
+```shell
+py -3.10 -m venv ./.venv
+.\.venv\Scripts\activate
+python --version
+pip install --upgrade pip
+
+# Additional tools
+pip install jupyterlab notebook voila numpy pandas matplotlib seaborn
+
+# Tensorflow
+pip install tensorflow
+pip install tensorflow-estimator
+pip install tensorflow-io-gcs-filesystem
+pip install tensorflow-metadata
+# raise RuntimeError('Python version 2.7 or 3.4+ is required.') - Bad! how much down we should downgrade Python? 
+# pip install tensorflow-transform
+
+# Take installed software list
+pip freeze > requirements.txt
+```
+
 ## TODO
 
 1. Refactor Flask related code (web_app) by layers example code (application, layer_example, log, resources).
