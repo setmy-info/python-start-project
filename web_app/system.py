@@ -24,7 +24,8 @@ class System:
     def load_config(self):
         self.application_properties = self.applicationLoaderService.load_application_properties()
 
-    def logger_init(self, log):
+    @staticmethod
+    def logger_init(log):
         logging.basicConfig(filename=log.directory + log.fileName, format=log.format, level=log.level)
         handler = RotatingFileHandler(filename=log.directory + log.fileName, maxBytes=log.size, backupCount=1)
         log = logging.getLogger()

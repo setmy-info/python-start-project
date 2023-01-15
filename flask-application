@@ -1,5 +1,6 @@
 #!/bin/sh
 
+export PYTHONPATH=$(pwd)
 export ENVIRONMENT=setmy.info.conf.flaskConfig.DevelopmentConfig
 python3 ./web_app/main.py
 
