@@ -7,6 +7,10 @@ be 3.10.x
 
 Currently, Python 3.9 version (Rocky Linux has that version of Python).
 
+TF table with components versions:
+
+https://www.tensorflow.org/tfx/transform/install
+
 ```shell
 py -3.10 -m venv ./.venv
 .\.venv\Scripts\activate
