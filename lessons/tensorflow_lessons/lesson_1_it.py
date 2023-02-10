@@ -5,6 +5,13 @@ import PIL
 import PIL.Image
 import tensorflow as tf
 import tensorflow_datasets as tfds
+import tensorflow_transform as tft
+import tensorflow_transform.beam as tft_beam
+
+from tensorflow_transform.tf_metadata import dataset_metadata
+from tensorflow_transform.tf_metadata import schema_utils
+
+from tfx_bsl.public import tfxio
 import pathlib
 
 
@@ -38,14 +45,14 @@ class Test(unittest.TestCase):
         archive = tf.keras.utils.get_file(origin=dataset_url, extract=True)
         # C:\Users\USERNAME\.keras\datasets\flower_photos
         data_dir = pathlib.Path(archive).with_suffix('')
-        pass
+        self.assertEqual('TF Test', 'TF Test')
 
     def test_download_mnist(self):
         # http://yann.lecun.com/exdb/mnist/
         datasets = tfds.load("mnist")
         # C:\Users\USERNAME\tensorflow_datasets
         train_dataset, test_dataset = datasets["train"], datasets["test"]
-        pass
+        self.assertEqual('TF Test', 'TF Test')
 
 
 if __name__ == "__main__":

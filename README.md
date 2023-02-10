@@ -1,9 +1,11 @@
 # python-start-project
 
-## Notest
+## Notes
 
 For [Tensorflow 2.11.0 (at the moment the latest version)](https://pypi.org/project/tensorflow/) Python version should
 be 3.10.x
+
+Currently, Python 3.9 version (Rocky Linux has that version of Python).
 
 ```shell
 py -3.10 -m venv ./.venv

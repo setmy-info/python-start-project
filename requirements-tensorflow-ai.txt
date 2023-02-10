@@ -3,3 +3,5 @@ tensorflow-datasets==4.8.1
 tensorflow-estimator==2.11.0
 tensorflow-io-gcs-filesystem==0.29.0
 tensorflow-metadata==1.12.0
+tensorflow-serving-api==2.11.0
+tensorflow-transform==1.12.0
