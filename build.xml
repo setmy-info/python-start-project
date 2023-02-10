@@ -22,10 +22,20 @@
     <target name="test-compile" depends="process-test-resources"></target>
     <target name="process-test-classes" depends="test-compile"></target>
     <target name="test" depends="process-test-classes">
-        <exec executable="cmd">
+        <exec executable="cmd" osfamily="Windows">
             <env key="PYTHONPATH" value="${PYTHONPATH}"/>
             <arg value="/c"/>
             <arg value="python"/>
+            <arg value="-m"/>
+            <arg value="unittest"/>
+            <arg value="discover"/>
+            <arg value="-s"/>
+            <arg value="./"/>
+            <arg value="-p"/>
+            <arg value="*_test.py"/>
+        </exec>
+        <exec executable="python" osfamily="unix">
+            <env key="PYTHONPATH" value="${PYTHONPATH}"/>
             <arg value="-m"/>
             <arg value="unittest"/>
             <arg value="discover"/>
@@ -41,10 +51,20 @@
     <target name="integration-test" depends="pre-integration-test"></target>
     <target name="post-integration-test" depends="integration-test"></target>
     <target name="verify" depends="post-integration-test">
-        <exec executable="cmd">
+        <exec executable="cmd" osfamily="Windows">
             <env key="PYTHONPATH" value="${PYTHONPATH}"/>
             <arg value="/c"/>
             <arg value="python"/>
+            <arg value="-m"/>
+            <arg value="unittest"/>
+            <arg value="discover"/>
+            <arg value="-s"/>
+            <arg value="./"/>
+            <arg value="-p"/>
+            <arg value="*_it.py"/>
+        </exec>
+        <exec executable="python" osfamily="unix">
+            <env key="PYTHONPATH" value="${PYTHONPATH}"/>
             <arg value="-m"/>
             <arg value="unittest"/>
             <arg value="discover"/>
@@ -64,29 +84,68 @@
     <target name="site-run" depends="jupyter"></target>
 
     <target name="jupyter">
-        <exec executable="cmd">
+        <exec executable="cmd" osfamily="Windows">
             <arg value="/c"/>
             <arg value="jupyter"/>
+            <arg value="notebook"/>
+            <arg value="--notebook-dir=./docs"/>
+        </exec>
+        <exec executable="jupyter" osfamily="unix">
             <arg value="notebook"/>
             <arg value="--notebook-dir=./docs"/>
         </exec>
     </target>
 
     <target name="flask-run">
-        <exec executable="cmd">
+        <exec executable="cmd" osfamily="Windows">
             <env key="PYTHONPATH" value="${PYTHONPATH}"/>
             <arg value="/c"/>
             <arg value="python"/>
             <arg value="./web_app/main.py"/>
         </exec>
+        <exec executable="python" osfamily="Windows">
+            <env key="PYTHONPATH" value="${PYTHONPATH}"/>
+            <arg value="./web_app/main.py"/>
+        </exec>
     </target>
 
     <target name="layers-example-run">
-        <exec executable="cmd">
+        <exec executable="cmd" osfamily="Windows">
             <env key="PYTHONPATH" value="${PYTHONPATH}"/>
             <arg value="/c"/>
             <arg value="python"/>
             <arg value="./layers_example/main.py"/>
+        </exec>
+        <exec executable="python" osfamily="unix">
+            <env key="PYTHONPATH" value="${PYTHONPATH}"/>
+            <arg value="./layers_example/main.py"/>
+        </exec>
+    </target>
+
+    <target name="requirements">
+        <exec executable="cmd" osfamily="Windows">
+            <arg value="/c"/>
+            <arg value="pip"/>
+            <arg value="install"/>
+            <arg value="-r"/>
+            <arg value="requirements.txt"/>
+            <arg value="-r"/>
+            <arg value="requirements-ai.txt"/>
+            <arg value="-r"/>
+            <arg value="requirements-pytorch-ai.txt"/>
+            <arg value="-r"/>
+            <arg value="requirements-tensorflow-ai.txt"/>
+        </exec>
+        <exec executable="pip" osfamily="unix">
+            <arg value="install"/>
+            <arg value="-r"/>
+            <arg value="requirements.txt"/>
+            <arg value="-r"/>
+            <arg value="requirements-ai.txt"/>
+            <arg value="-r"/>
+            <arg value="requirements-pytorch-ai.txt"/>
+            <arg value="-r"/>
+            <arg value="requirements-tensorflow-ai.txt"/>
         </exec>
     </target>
 </project>
