@@ -43,3 +43,4 @@ Virtual environment setup:
 
 1. Refactor Flask related code (web_app) by layers example code (application, layer_example, log, resources).
 2. Falsk app gives an error at startup.
+3. Problem: The TensorFlow library was compiled to use AVX instructions, but these aren't available on your machine.
