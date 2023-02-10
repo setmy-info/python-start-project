@@ -1,0 +1,3 @@
+importlib-metadata==6.0.0
+pywin32==305
+pywinpty==2.0.10
