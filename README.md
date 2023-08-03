@@ -12,25 +12,30 @@ TF table with components versions:
 https://www.tensorflow.org/tfx/transform/install
 
 ```shell
-py -3.10 -m venv ./.venv
+py -3.9 -m venv ./.venv
 .\.venv\Scripts\activate
 python --version
-pip install --upgrade pip
+python -m pip install --upgrade pip
 
 # Flask etc
-pip install click colorama Flask itsdangerous Jinja2 MarkupSafe PyYAML Werkzeug
+pip install click colorama Flask itsdangerous Jinja2 MarkupSafe Markdown PyYAML Werkzeug
 
-# Additional tools
-pip install jupyterlab notebook voila numpy pandas matplotlib seaborn
+# Additional tools Vol 1
+pip install jupyterlab notebook voila matplotlib seaborn
+
+# Additional tools Vol 2 (Will be installed by tensorflow installation)
+pip install numpy pandas
 
 # Tensorflow
-pip install pyarrow
+# pyarrow, numpy and pandas will be reinstalled by requirements
+pip install tensorboard
 pip install tensorflow
+pip install tensorflow-datasets
 pip install tensorflow-estimator
 pip install tensorflow-io-gcs-filesystem
 pip install tensorflow-metadata
 # ...raise RuntimeError('Python version 2.7 or 3.4+ is required.') - Bad (already downgraded and loosing language new features).
-# pip install tensorflow-transform
+pip install tensorflow-transform
 
 #PyTorch (CPU version)
 pip install torch torchvision torchaudio torchtext
