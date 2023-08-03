@@ -12,7 +12,7 @@ TF table with components versions:
 https://www.tensorflow.org/tfx/transform/install
 
 ```shell
-py -3.11 -m venv ./.venv
+py -3.9 -m venv ./.venv
 .\.venv\Scripts\activate
 python --version
 python -m pip install --upgrade pip
