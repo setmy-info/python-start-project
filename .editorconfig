@@ -6,6 +6,10 @@ indent_size = 4
 indent_style = space
 end_of_line = lf
 insert_final_newline = true
-
-[*.{js,html,css,java,groovy,xml,json,apt,go,yml,yaml,ts,py,cmd,bat}]
 trim_trailing_whitespace = true
+
+[Makefile]
+indent_style = tab
+
+[*.cmd]
+end_of_line = crlf
