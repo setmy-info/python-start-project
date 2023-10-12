@@ -1,5 +1,23 @@
 # python-start-project
 
+### Update version info
+
+```shell
+# Win
+set NAME=smi_python_runner
+set VERSION=1.3.0
+# *nix
+NAME=smi_python_runner
+VERSION=1.3.0
+# Win
+python -m smi_python_commons.scm_version %NAME% %VERSION%
+# *nix
+python -m smi_python_commons.scm_version ${NAME} ${VERSION}
+git add ./${NAME}/project.py
+git commit -m "project.py updated"
+git push
+```
+
 ## Notes
 
 For [Tensorflow 2.11.0 (at the moment the latest version)](https://pypi.org/project/tensorflow/) Python version should
@@ -38,7 +56,6 @@ pip install torch torchvision torchaudio torchtext
 # Take installed software list
 pip freeze > requirements.txt
 ```
-
 
 Erroro for at **tensorflow-transform** installation (Windows + Python 3.11)
 
