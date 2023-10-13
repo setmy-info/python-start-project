@@ -1,1 +1,1 @@
-SMI_PROJECT_REQUIREMENTS="requirements.txt requirements-ai.txt requirements-pytorch-ai.txt requirements-tensorflow-ai.txt"
+SMI_PROJECT_REQUIREMENTS="requirements-all-linux.txt"
