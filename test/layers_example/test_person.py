@@ -1,7 +1,7 @@
 import datetime
 import unittest
 
-from layers_example.person import Person
+from test.layers_example.person import Person
 
 
 class PersonTest(unittest.TestCase):

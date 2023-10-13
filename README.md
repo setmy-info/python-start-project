@@ -40,6 +40,24 @@ export RUNNERS_PREFIX=python_start_project
 python -m smi_python_runner.main -p dev -r flask-runner -s some-sub-command
 ```
 
+### Run unit tests
+
+```shell
+python -m unittest discover -s ./test/
+```
+
+### Run integration tests
+
+```shell
+python -m unittest discover -s ./test/ -p it_*.py
+```
+
+### All tests
+
+```shell
+python -m unittest discover -s ./test && python -m unittest discover -s ./test -p it_*.py
+```
+
 ## Notes
 
 For [Tensorflow 2.11.0 (at the moment the latest version)](https://pypi.org/project/tensorflow/) Python version should
