@@ -1,5 +1,22 @@
 # python-start-project
 
+### Preparations
+
+```shell
+# Win
+py -3.9 -m venv ./.venv
+# *nix
+python -m venv ./.venv
+# Win
+.\.venv\Scripts\activate
+# *nix
+source ./.venv/bin/activate
+# Or
+. ./.venv/bin/activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
 ### Update version info
 
 ```shell
@@ -16,6 +33,11 @@ python -m smi_python_commons.scm_version ${NAME} ${VERSION}
 git add ./${NAME}/project.py
 git commit -m "project.py updated"
 git push
+```
+
+```shell
+export RUNNERS_PREFIX=python_start_project
+python -m smi_python_runner.main -p dev -r flask-runner -s some-sub-command
 ```
 
 ## Notes

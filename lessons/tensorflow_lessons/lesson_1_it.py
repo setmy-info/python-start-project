@@ -1,18 +1,8 @@
+import pathlib
 import unittest
-import numpy as np
-import os
-import PIL
-import PIL.Image
+
 import tensorflow as tf
 import tensorflow_datasets as tfds
-import tensorflow_transform as tft
-import tensorflow_transform.beam as tft_beam
-
-from tensorflow_transform.tf_metadata import dataset_metadata
-from tensorflow_transform.tf_metadata import schema_utils
-
-from tfx_bsl.public import tfxio
-import pathlib
 
 
 # https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/quickstart/beginner.ipynb

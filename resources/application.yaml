@@ -1,15 +1,10 @@
-#server:
-#    host: 0.0.0.0
-#    port: 5000
-#    templateFolder: '../templates'
-#    staticFolder: '../static'
-#rest:
-#    root: ''
-#log:
-#    directory: ./
-#    fileName: python-start-project.log
-#    level: DEBUG
-#    format: '%(asctime)-15s %(message)s'
-#    size: 1024
+application:
+    name: python-start-project
+    # TODO : flask server related values to server setup
+    server:
+        host: 0.0.0.0
+        port: 5000
+        templateFolder: 'python_start_project/web_app/templates'
+        staticFolder: 'python_start_project/web_app/static'
 features:
     feature_a: true
