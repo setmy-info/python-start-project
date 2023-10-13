@@ -21,11 +21,11 @@ pip install -r requirements.txt
 
 ```shell
 # Win
-set NAME=smi_python_runner
-set VERSION=1.3.0
+set NAME=python_start_project
+set VERSION=1.0.0
 # *nix
-NAME=smi_python_runner
-VERSION=1.3.0
+NAME=python_start_project
+VERSION=1.0.0
 # Win
 python -m smi_python_commons.scm_version %NAME% %VERSION%
 # *nix
