@@ -1,7 +1,6 @@
 from flask import Flask, render_template, send_from_directory, request, jsonify
 
 from python_start_project.web_app.flask_application import FlaskApplication
-from python_start_project.web_app.gunicorn_application import GunicornApplication
 
 
 def main(flask_application: FlaskApplication):
@@ -14,14 +13,10 @@ def main(flask_application: FlaskApplication):
 
     add_routes(flask, flask_application)
 
-    gunicorn_application = GunicornApplication(flask, flask_application)
-    gunicorn_application.run()
-    '''
     flask.run(
         host=flask_application.get_host(),
         port=flask_application.get_port()
     )
-    '''
     return 0
 
 
