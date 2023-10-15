@@ -1,37 +1,12 @@
 from flask import Flask, render_template, send_from_directory, request, jsonify
-from waitress import serve
+
+from python_start_project.web_app.example.example_routes import add_example_routes
 from python_start_project.web_app.flask_application import FlaskApplication
 
 
-# from python_start_project.web_app.flask_routes import add_routes
-
-
-def main(flask_application: FlaskApplication):
-    flask = Flask(
-        flask_application.application.name,
-        template_folder="python_start_project/web_app/templates",
-        static_folder="python_start_project/web_app/static",
-        static_url_path=''
-    )
-
-    add_routes(flask, flask_application)
-
-    server_type = flask_application.get_server_type()
-    if server_type == "waitress":
-        serve(
-            flask,
-            host=flask_application.get_host(),
-            port=flask_application.get_port()
-        )
-    elif server_type == "werkzeug":
-        flask.run(
-            host=flask_application.get_host(),
-            port=flask_application.get_port()
-        )
-    return 0
-
-
 def add_routes(flask: Flask, flask_application: FlaskApplication):
+    add_example_routes(flask, flask_application)
+
     def index():
         return "Hello World from Index"
 
@@ -44,6 +19,7 @@ def add_routes(flask: Flask, flask_application: FlaskApplication):
     def hello_name(name):
         return "Hello {}!".format(name)
 
+    # http://localhost:5000/template
     # http://localhost:5000/template/
     # http://localhost:5000/template/index
     @flask.route('/template/')
@@ -52,6 +28,7 @@ def add_routes(flask: Flask, flask_application: FlaskApplication):
         user_data = {'firstName': 'Imre'}
         return render_template('index.html', title='Microservice', data=user_data)
 
+    # http://localhost:5000/static
     # http://localhost:5000/static/another
     @flask.route('/static/<path:path>')
     def static_content(path):

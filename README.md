@@ -37,7 +37,7 @@ git push
 
 ```shell
 export RUNNERS_PREFIX=python_start_project
-python -m smi_python_runner.main -p dev -r flask-runner -s some-sub-command
+python -m smi_python_runner.main -p dev -r flask-runner -s some-sub-command -e exmaple
 ```
 
 ### Run unit tests
