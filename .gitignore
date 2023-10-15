@@ -105,3 +105,11 @@ venv.bak/
 
 # Idea
 .idea
+/test/lessons/pytorch_lessons/graph.pt
+/test/lessons/tensorflow_lessons/c.h5/
+/test/lessons/pytorch_lessons/iris_model.pth
+/test/lessons/tensorflow_lessons/keras_iris_model.h5
+/graph.pt
+/iris_model.pth
+/keras_iris_model.h5
+/c.h5/

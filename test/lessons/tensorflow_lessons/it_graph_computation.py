@@ -1,7 +1,19 @@
 import unittest
 
 import numpy as np
+import pandas as pd
 import tensorflow as tf
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from tensorflow import keras
+
+
+def prepare_iris_dataset():
+    iris = load_iris()
+    iris_df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
+    iris_df['target'] = iris.target
+    iris_df.to_csv('iris_dataset.csv', index=False)
 
 
 class Test(unittest.TestCase):
@@ -67,6 +79,30 @@ class Test(unittest.TestCase):
         model = GraphModel(a, b)
         print(model.c)
         tf.saved_model.save(model, graph_name)
+
+    def test_iris_training(self):
+        # prepare_iris_dataset()
+        iris_df = pd.read_csv('test/lessons/tensorflow_lessons/iris_dataset.csv')
+        X = iris_df.drop('target', axis=1).values
+        y = iris_df['target'].values
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+        scaler = StandardScaler()
+        X_train = scaler.fit_transform(X_train)
+        X_test = scaler.transform(X_test)
+
+        model = keras.Sequential([
+            keras.layers.Input(shape=(4,)),
+            keras.layers.Dense(64, activation='relu'),
+            keras.layers.Dense(64, activation='relu'),
+            keras.layers.Dense(64, activation='relu'),
+            keras.layers.Dense(3, activation='softmax')
+        ])
+        model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+        model.fit(X_train, y_train, epochs=100, batch_size=32, validation_split=0.2)
+        model.save('keras_iris_model.h5')
+        loaded_model = keras.models.load_model('keras_iris_model.h5')
+        loss, accuracy = loaded_model.evaluate(X_test, y_test)
+        print(f'Accuracy with test data: {accuracy * 100}%')
 
 
 if __name__ == "__main__":

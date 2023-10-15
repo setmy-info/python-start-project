@@ -61,7 +61,7 @@ behave
 ### All tests
 
 ```shell
-python -m unittest discover -s ./test && python -m unittest discover -s ./test -p it_*.py
+python -m unittest discover -s ./test && python -m unittest discover -s ./test -p it_*.py && behave
 ```
 
 ## Notes
