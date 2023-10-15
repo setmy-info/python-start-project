@@ -31,5 +31,5 @@ class FlaskApplication:
 
     def get_server_type(self):
         # TODO : get values from config
-        # return "waitress"
-        return "werkzeug"
+        return "waitress"
+        # return "werkzeug"
