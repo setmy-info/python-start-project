@@ -52,6 +52,12 @@ python -m unittest discover -s ./test/
 python -m unittest discover -s ./test/ -p it_*.py
 ```
 
+### Run behave (Cucumber) integration tests
+
+```shell
+behave
+```
+
 ### All tests
 
 ```shell
