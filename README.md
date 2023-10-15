@@ -103,7 +103,7 @@ pip install torch torchvision torchaudio torchtext
 pip freeze > requirements.txt
 ```
 
-Erroro for at **tensorflow-transform** installation (Windows + Python 3.11)
+Error for at **tensorflow-transform** installation (Windows + Python 3.11)
 
 ```
 Collecting pyarrow<7,>=6 (from tensorflow-transform)
@@ -135,6 +135,14 @@ error: subprocess-exited-with-error
 note: This error originates from a subprocess, and is likely not a problem with pip.
 
 ```
+
+Error with **import tensorflow_datasets as tfds**: ... ModuleNotFoundError: No module named 'resource'
+
+**\.venv\Lib\site-packages\tensorflow_datasets\core\shuffle.py**
+#import resource
+def _increase_open_files_limit():
+"""Attempts to increase the maximum number of open file descriptors."""
+pass
 
 ## PyCharm setup
 
