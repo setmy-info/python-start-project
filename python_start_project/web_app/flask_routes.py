@@ -1,47 +1,12 @@
-from flask import Flask, render_template, send_from_directory, request, jsonify
+from flask import Flask
 
-from python_start_project.web_app.example.example_routes import add_example_routes
+from python_start_project.web_app.example.routes import add_example_routes
 from python_start_project.web_app.flask_application import FlaskApplication
+from python_start_project.web_app.index.routes import add_index_routes
+from python_start_project.web_app.static.routes import add_static_routes
 
 
 def add_routes(flask: Flask, flask_application: FlaskApplication):
+    add_index_routes(flask, flask_application)
+    add_static_routes(flask, flask_application)
     add_example_routes(flask, flask_application)
-
-    def index():
-        return "Hello World from Index"
-
-    @flask.route(flask_application.get_path("/"))
-    def idx():
-        return index()
-
-    # http://localhost:5000/ImreTabur
-    @flask.route(flask_application.get_path('/<name>'))
-    def hello_name(name):
-        return "Hello {}!".format(name)
-
-    # http://localhost:5000/template
-    # http://localhost:5000/template/
-    # http://localhost:5000/template/index
-    @flask.route('/template/')
-    @flask.route('/template/index')
-    def templates():
-        user_data = {'firstName': 'Imre'}
-        return render_template('index.html', title='Microservice', data=user_data)
-
-    # http://localhost:5000/static
-    # http://localhost:5000/static/another
-    @flask.route('/static/<path:path>')
-    def static_content(path):
-        try:
-            return send_from_directory(flask.static_folder, path + '/' + 'index.html')
-        except FileNotFoundError as e:
-            raise e
-
-    # http://localhost:5000/post
-    # Content for POST method {"firstName": "Imre"}
-    # Content-Type: application/json and Accept: application/json
-    @flask.route('/post', methods=['POST'])
-    def post():
-        content = request.get_json()
-        print(content)
-        return jsonify(content)

@@ -1,4 +1,8 @@
+import logging
+
 from smi_python_commons.config.application import Application
+
+log = logging.getLogger(__name__)
 
 
 class FlaskApplication:
@@ -9,7 +13,9 @@ class FlaskApplication:
 
     def get_path(self, path: str):
         # TODO : get values from config
-        return "" + path
+        result = "/" + path
+        log.info("Getting path for: " + result)
+        return result
 
     def get_host(self):
         # TODO : get values from config
@@ -25,5 +31,5 @@ class FlaskApplication:
 
     def get_server_type(self):
         # TODO : get values from config
-        return "waitress"
-        #return "werkzeug"
+        # return "waitress"
+        return "werkzeug"
