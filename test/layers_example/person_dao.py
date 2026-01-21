@@ -13,6 +13,3 @@ class PersonDAO:
         return [
             Person("Imre", "Tabur", datetime.datetime(1975, 12, 23))
         ]
-
-
-person_dao = PersonDAO()
