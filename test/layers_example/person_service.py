@@ -6,7 +6,7 @@ logger = logging.getLogger(__name__)
 class PersonService:
 
     def __init__(self, person_dao):
-        self.person_dao = person_dao;
+        self.person_dao = person_dao
 
     def get_all_persons(self):
         logger.info("Getting all persons at service layer")

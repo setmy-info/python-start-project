@@ -1,7 +1,7 @@
 import logging
 import sys
 
-from person_service import person_service
+from container import person_service
 
 logger = logging.getLogger(__name__)
 
