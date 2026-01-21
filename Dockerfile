@@ -1,6 +1,6 @@
 FROM fedora:30
 
-MAINTAINER Imre Tabur "imre.tabur@eesti.ee"
+MAINTAINER Imre Tabur "imre.tabur@mail.ee"
 
 LABEL org.label-schema.name="Docker HUB CentOS Python micro service base" \
       org.label-schema.version="v3.4" \
