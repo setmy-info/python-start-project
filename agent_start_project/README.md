@@ -32,4 +32,6 @@ Illustrating multiple rules folders and multiple MCP servers endpoints
 ```shell
 export OPENAI_API_KEY=your_api_key_here
 smi-venv-command python agent_start_project/agent/main.py --rules ./agent_start_project/rules ./agent_start_project/rules --mcp http://127.0.0.1:5000/mcp http://127.0.0.1:5000/mcp -t ./agent_start_project/tasks/example.md ./agent_start_project/tasks/example.md
+
+smi-venv-command python agent_start_project/agent/probe.py
 ```

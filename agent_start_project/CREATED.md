@@ -32,7 +32,7 @@ python -m pip install --upgrade pip
 
 6. **Install required libraries:**
 ```shell
-pip install fastapi uvicorn openai
+pip install fastapi uvicorn openai tiktoken
 ```
 
 *Or use the requirements.txt file:*
@@ -46,3 +46,7 @@ pip install -r requirements.txt
 ```shell
 mkdir rules
 ```
+
+# Registered
+
+https://platform.openai.com/docs/overview
