@@ -25,7 +25,7 @@ class CLIParser:
         self.parser.add_argument(
             "--tasklist",
             "-t",
-            nargs="+",  # lubab mitu faili
+            nargs="+",
             required=True,
             help="Path(s) to tasklist file(s) (txt or md) to process"
         )

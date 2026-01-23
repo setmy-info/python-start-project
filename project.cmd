@@ -1,2 +1,2 @@
-set SMI_PROJECT_PYTHON_VERSION=3.13
-REM set SMI_PROJECT_REQUIREMENTS=-r requirements.txt -r requirements-tensorflow-ai.txt -r requirements-pytorch-ai.txt
+set SMI_PROJECT_PYTHON_VERSION=3.12
+set SMI_PROJECT_REQUIREMENTS=-r requirements.txt

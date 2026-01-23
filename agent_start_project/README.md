@@ -5,7 +5,7 @@ FastAPI playground API with MCP metadata and a CLI AI agent that uses MCP and RA
 ## Chosen platform
 
 * **ChromaDV** as vector database
-* **OpenAI** as example.
+* **OpenAI** as an example.
 
 ## Installation
 
@@ -35,3 +35,11 @@ smi-venv-command python agent_start_project/agent/main.py --rules ./agent_start_
 
 smi-venv-command python agent_start_project/agent/probe.py
 ```
+
+https://platform.openai.com/docs/guides/structured-outputs
+
+https://platform.openai.com/docs/overview
+
+https://platform.openai.com/usage
+
+https://platform.openai.com/api-keys
