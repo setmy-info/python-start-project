@@ -62,6 +62,8 @@ smi-venv-command python agent_start_project/agent/probe.py
     USING ivfflat (embedding vector_cosine_ops)
     WITH (lists = 100);
 
+    pip install psycopg[binary] pgvector
+
 https://platform.openai.com/docs/guides/structured-outputs
 
 https://platform.openai.com/docs/overview
