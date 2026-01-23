@@ -36,6 +36,32 @@ smi-venv-command python agent_start_project/agent/main.py --rules ./agent_start_
 smi-venv-command python agent_start_project/agent/probe.py
 ```
 
+    docker pull pgvector/pgvector:pg16
+
+    docker run -d \
+      --name pgvector \
+      -p 5432:5432 \
+      -e POSTGRES_USER=rag \
+      -e POSTGRES_PASSWORD=rag \
+      -e POSTGRES_DB=ragdb \
+      pgvector/pgvector:pg16
+
+    docker exec -it pgvector psql -U rag -d ragdb
+
+    CREATE EXTENSION vector;
+
+    CREATE TABLE documents (
+        id UUID PRIMARY KEY,
+        source TEXT,
+        content TEXT,
+        embedding VECTOR(1536)  -- text-embedding-3-small
+    );
+
+    CREATE INDEX documents_embedding_idx
+    ON documents
+    USING ivfflat (embedding vector_cosine_ops)
+    WITH (lists = 100);
+
 https://platform.openai.com/docs/guides/structured-outputs
 
 https://platform.openai.com/docs/overview
