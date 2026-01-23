@@ -38,15 +38,7 @@ smi-venv-command python agent_start_project/agent/probe.py
 
     docker pull pgvector/pgvector:pg16
 
-    docker run -d \
-      --name pgvector \
-      -p 5432:5432 \
-      -e POSTGRES_USER=rag \
-      -e POSTGRES_PASSWORD=rag \
-      -e POSTGRES_DB=ragdb \
-      pgvector/pgvector:pg16
-
-    docker exec -it pgvector psql -U rag -d ragdb
+    docker run -d --name pgvector -p 5432:5432 -e POSTGRES_USER=rag -e POSTGRES_PASSWORD=rag -e POSTGRES_DB=ragdb pgvector/pgvector:pg16 docker exec -it pgvector psql -U rag -d ragdb
 
     CREATE EXTENSION vector;
 
