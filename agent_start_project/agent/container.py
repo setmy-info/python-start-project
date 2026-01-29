@@ -16,4 +16,11 @@ embedding_service = EmbeddingService()
 tasklist_service = TasklistService()
 mcp_service = McpService()
 rag_service = RagService()
-initialization_service = InitializationService()
+initialization_service = InitializationService(
+    file_service,
+    tokenizer_service,
+    embedding_service,
+    tasklist_service,
+    mcp_service,
+    rag_service
+)
