@@ -14,9 +14,9 @@ setup(
     packages=find_packages(),
     install_requires=[
         "smi-python-runner==1.3.0"
-        "Flask==3.0.0"
-        "Werkzeug==3.0.0"
-        "gunicorn==21.2.0"
-        "gevent==23.9.1"
+        "Flask==3.1.2"
+        "Werkzeug==3.1.5"
+        "gunicorn==23.0.0"
+        "gevent==25.9.1"
     ],
 )

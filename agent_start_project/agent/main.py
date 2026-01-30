@@ -5,7 +5,7 @@ import openai
 from container import cli_parser
 from mcp import load_mcp
 from model import ask_ai_to_process_tasks, execute_ai_tasks
-from rules import load_rules
+from agent_start_project.agent.rules import load_rules
 from tasks import load_tasklists
 
 
