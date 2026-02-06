@@ -139,6 +139,7 @@ smi-python-commons==0.3.3
 smi-python-runner==1.3.0
 sniffio==1.3.1
 soupsieve==2.8
+sse-starlette==3.2.0
 stack-data==0.6.3
 starlette==0.50.0
 sympy==1.14.0
